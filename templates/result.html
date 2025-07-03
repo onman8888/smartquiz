@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>結果発表</title>
+</head>
+<body>
+    {% if correct %}
+        <h2>🎉 正解！おめでとう！</h2>
+    {% else %}
+        <h2>😢 不正解…もう一度挑戦してみよう！</h2>
+    {% endif %}
+
+    <p><strong>解説:</strong> {{ explanation }}</p>
+    <p><strong>解答時間:</strong> {{ elapsed_time }} 秒</p>
+
+    <a href="{{ url_for('index') }}">トップページへ戻る</a>
+</body>
+</html>

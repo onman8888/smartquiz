@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>確認用：1問表示</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 2em; }
+    .box {
+      background: #fff;
+      padding: 1.5em;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { margin-top: 0; }
+    ul { padding-left: 1.2em; }
+    .debug { color: gray; font-size: 0.9em; margin-top: 1em; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>📦 データ確認：1問読み込み</h2>
+
+    {% if question %}
+      <p><strong>問題：</strong> {{ question.question }}</p>
+
+      <p><strong>選択肢：</strong></p>
+      <ul>
+        {% for option in question.options %}
+          <li>{{ option }}</li>
+        {% endfor %}
+      </ul>
+
+      <div class="debug">
+        <p>ID: {{ question.id }}</p>
+        <p>正解インデックス: {{ question.correct }}</p>
+      </div>
+
+    {% else %}
+      <p style="color: red;">❌ データが見つかりませんでした。</p>
+    {% endif %}
+  </div>
+</body>
+</html>
